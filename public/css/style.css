@@ -1,45 +1,43 @@
-.loader {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    position: relative;
-    animation: rotate 1s linear infinite
+body {
+    background-color: rgb(195, 253, 255);
 }
 
-.loader::before {
-    content: "";
-    box-sizing: border-box;
-    position: absolute;
-    inset: 0px;
-    border-radius: 50%;
-    border: 5px solid #FFF;
-    animation: prixClipFix 2s linear infinite;
+#container {
+    height: 100px;
+    width: 52px;
+    animation: rotateContainer 1.5s ease-in-out infinite;
 }
 
-@keyframes rotate {
+@keyframes rotateContainer {
+
+    95%,
     100% {
         transform: rotate(360deg)
     }
 }
 
-@keyframes prixClipFix {
-    0% {
-        clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
-    }
+.loader {
+    width: 48px;
+    height: 48px;
+    background: #a1a1a1;
+    border-radius: 50%;
+    position: relative;
+    animation: skLinRotate 1.5s ease-in-out infinite alternate;
+}
 
-    25% {
-        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
-    }
+.loader:after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    border-top-color: #ff0000;
+}
 
-    50% {
-        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
-    }
+@keyframes skLinRotate {
 
-    75% {
-        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
-    }
-
+    95%,
     100% {
-        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+        transform: rotate(840deg)
     }
 }
